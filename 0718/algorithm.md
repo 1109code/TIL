@@ -25,3 +25,42 @@ for i in range(T):
     print(f'#{i+1} {max}')
 ```
 
+
+
+# 판 회전하기
+
+```python
+T = int(input())
+
+#판 회전하는 함수
+def turn(list,N):
+    list_1 = [[0 for col in range(N)]for row in range(N)]
+    for i in range(N):
+        for j in range(N):
+            list_1[i][j] = list[N-j-1][i]
+    return list_1
+
+# 기본 판, 90도, 180도, 270도 회전한 판
+for k in range(T):
+    board = []
+    N = int(input())
+    for i in range(N):
+        board.append(list(map(int,input().split())))
+    
+    turn_1 = turn(board, N)
+    turn_2 = turn(turn_1, N)
+    turn_3 = turn(turn_2, N)
+
+# 판 인쇄
+    print(f'#{k+1}')
+    for i in range(N):
+        for j in range(N):
+            print(turn_1[i][j], end='')
+        print(' ',end = '')    
+        for j in range(N):
+            print(turn_2[i][j], end='')
+        print(' ', end = '')
+        for j in range(N):
+            print(turn_3[i][j], end='')
+        print('')
+```
