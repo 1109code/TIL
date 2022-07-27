@@ -8,7 +8,7 @@ def movie_info(movie, genres):
     genre_names = []
     for i in range(len(movie.get('genre_ids'))):
         for names in genres:
-            id = movie.get('genre_ids')[i]
+            id = movie['genre_ids'][i]
             if id == names['id']:
                 genre_names.append(names['name'])
 
