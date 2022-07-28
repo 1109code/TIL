@@ -1,4 +1,3 @@
-import random
 height = []
 for i in range(9):
     height.append(int(input()))
