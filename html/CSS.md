@@ -26,7 +26,13 @@ Cascading Style Sheets
 
 > 전체 선택자, 요소 선택자
 >
-> 클래스 선택자, 아이디 선택자, 속성 선택자
+> 클래스 선택자 : 마침표(.)문자로 시작, 해당 클래스가 적용된 항목 선택
+>
+> 아이디 선택자 : # 문자로 시작, 해당 아이디가 적용된 항목 선택
+>
+> ​							일잔벅으로 하나의 문서에 1번만 사용, 여러개 사용해도 되지만 단일 id 권장
+>
+> 속성 선택자
 
 **결합자(Combinators)**
 
@@ -39,3 +45,14 @@ Cascading Style Sheets
 > 링크, 동적 의사 클래스
 >
 > 구조적 의사 클래스
+
+**CSS 적용 우선순위(cascading order)**
+
+1. 중요도(Importance) - 사용시 주의
+2. 우선 순위(Specificity)
+   1. 인라인
+   2. id
+   3. class, 속성, pseudo-class
+   4. 요소, pseduo-element
+3. CSS 파일 로딩 순서
+4. 
