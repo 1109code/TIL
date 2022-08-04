@@ -23,7 +23,6 @@ h1 {
 .container > .row {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
-  display: grid;
 }
 
 .row {
@@ -39,8 +38,6 @@ h1 {
     border: 1px solid;
     border-radius: 8px;
     background: #1b365c;
-    grid-column: 3;
-    
 }
 
 .item > p {
