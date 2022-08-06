@@ -27,7 +27,7 @@
 
 ![image-20220801194631138](C:\Users\user\AppData\Roaming\Typora\typora-user-images\image-20220801194631138.png)
 
-> 시작 태그 / 내용 / 종료 태그
+> **시작 태그 / 내용 / 종료 태그**
 >
 > * 요소는 태그로 컨텐츠(내용)를 감싸는 것으로 그 정보의 성격과 의미 정의
 >
@@ -102,4 +102,6 @@
 > 테그스트 파일인 HTML 문서를 브라우조에서 렌더링 하기 위한 구조
 
 ![image-20220801195925461](C:\Users\user\AppData\Roaming\Typora\typora-user-images\image-20220801195925461.png)
+
+
 

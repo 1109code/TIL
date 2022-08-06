@@ -1,4 +1,3 @@
-from pprint import pprint
 N = int(input())
 board = [['*']]
 number = 3

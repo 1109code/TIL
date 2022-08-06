@@ -69,3 +69,9 @@
 > date : date picker
 >
 > hidden : 사용자에게 보이지 않는 input
+>
+> https://developer.mozilla.org/ko/docs/Web/HTML/Element/Input
+
+
+
+font-weight: bold;

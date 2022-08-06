@@ -27,3 +27,14 @@ body {
   background-image: url('../assets/apparel.jpeg');
   background-size: cover;
 }
+.define-height {
+  max-height: 250px;
+  overflow: hidden;
+}
+.card-image {
+  max-height: 12em;
+  overflow: hidden;
+}
+.title-text {
+  font-family: cursive;
+}
