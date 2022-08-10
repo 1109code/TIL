@@ -1,7 +1,7 @@
 # 4835_구간합 문제풀이
 # 2022-08-09
-import sys
-sys.stdin = open('swea_4835_input.txt', 'r')
+# import sys
+# sys.stdin = open('swea_4835_input.txt', 'r')
 
 T = int(input())
 for t in range(T):
@@ -21,5 +21,3 @@ for t in range(T):
             min = sum
 
     print(f'#{t+1} {max-min}')
-
-
