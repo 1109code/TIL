@@ -1,16 +1,19 @@
-# swea_5789_현주의상자바꾸기 문제풀이
-# 2022-08-09
+# swea_5789 현주의 상자 바꾸기
+# 2022-08-16
 
 T = int(input())
+
 for t in range(T):
     N, Q = map(int, input().split())
+
     board = [0 for i in range(N)]
-    
-    for q in range(Q):
+
+    for i in range(1, Q+1):
         L, R = map(int, input().split())
-        for i in range(L, R+1):
-            board[i-1] = q+1
-    board = [str(i) for i in board]
+        for j in range(L, R+1):
+            board[j-1] = i
     
-    print('#{0}'.format(t+1), end=' ')
-    print('{0}'.format(' '.join(board)))
+    print('#{} '.format(t+1), end = '')
+    for i in range(len(board)):
+        print(board[i], end = ' ')
+    print('')
