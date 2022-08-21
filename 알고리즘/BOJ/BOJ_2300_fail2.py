@@ -28,18 +28,13 @@ while True:
     if (rectangles[-1] + length[right] > x[right] - x[left]) and (abs(y[right-1]) <= abs(y[right])):
         rectangles.pop()
         rectangles.append(x[right] - x[left])
-        print(rectangles)
     else:
         rectangles.append(length[right])
         left = right
-        print(rectangles)
     if right == N-1:
         break
 
 print(sum(rectangles))
-# 2차이가 나야됨
-        
-
 
 # 인접 x값 차이 
 # 최대 절대 2y값

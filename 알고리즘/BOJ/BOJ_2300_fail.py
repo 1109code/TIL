@@ -52,8 +52,18 @@ for i in range(1, N):
 rectangles = []
 rectangles.append[length[0]]
 
-left = x[0]
-right = x[0]
+left = 0
+right = 0
+
+
+while True:
+    right += 1
+    if rectangles[-1] + length[right] > right - left:
+        rectangles.pop()
+        rectangles.append(right - left)
+    else:
+        
+
 
 # 인접 x값 차이 
 # 최대 절대 2y값
