@@ -8,6 +8,8 @@
 
 
 
+> Content Delivery(Distribution) Network
+
 ### spacing (Margin and padding)
 
 ![image-20220803134947062](C:\Users\user\AppData\Roaming\Typora\typora-user-images\image-20220803134947062.png)
@@ -40,13 +42,29 @@
 >
 > **5** - 3
 
+![image-20220807174450942](C:\Users\user\AppData\Roaming\Typora\typora-user-images\image-20220807174450942.png)
+
 ### color
 
-
+![image-20220807175143630](C:\Users\user\AppData\Roaming\Typora\typora-user-images\image-20220807175143630.png)
 
 ### Text
 
-
+> text-start
+>
+> text-center
+>
+> text-end
+>
+> text-decoration-none
+>
+> fw-bold
+>
+> fw-normal
+>
+> fw-light
+>
+> fst-italic
 
 ### Position
 

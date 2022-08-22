@@ -73,7 +73,7 @@ Normal Flow
 
 > 배치 설정
 >
-> * flex-direction
+> * flex-direction 
 > * flex-wrap
 >
 > 공간 나누기
@@ -92,6 +92,8 @@ Normal Flow
 >
 > 역방향의 경우 HTML 태그 선언 순서와 시각적으로 다르니 유의 (웹 접근성에 영향)
 
+![image-20220807144813380](C:\Users\user\AppData\Roaming\Typora\typora-user-images\image-20220807144813380.png)
+
 ### flex-wrap
 
 > 아이템이 컨테이너를 벗어나는 경우 해당 영역 내에 배치되도록 설정
@@ -100,7 +102,7 @@ Normal Flow
 
 ![image-20220803100912319](C:\Users\user\AppData\Roaming\Typora\typora-user-images\image-20220803100912319.png)
 
-### flex-direction * flex-wrap
+### flex-direction & flex-wrap
 
 > flex-direction : Main axis의 방향을 설정
 >
@@ -109,15 +111,12 @@ Normal Flow
 > flex-flow :
 >
 > * flex-direction 과 flex-wrap의 shorthand
-> * flex-directino과 flex-
+> * flex-directino과 flex-wrap에 대한 설정 값을 차례로 작성
+>   * flex-flow: row nowrap;
 
 ### justify-content
 
 > Main axis를 기준으로 공간 배분
-
-![image-20220803101414617](C:\Users\user\AppData\Roaming\Typora\typora-user-images\image-20220803101414617.png)
-
-
 
 ![image-20220803101607381](C:\Users\user\AppData\Roaming\Typora\typora-user-images\image-20220803101607381.png)
 
@@ -140,9 +139,13 @@ Normal Flow
 > * space-around:
 > * space-evenly
 
-### algin-items
+### align-items
 
 ![image-20220803102422508](C:\Users\user\AppData\Roaming\Typora\typora-user-images\image-20220803102422508.png)
+
+### align-self
+
+![image-20220807151935088](C:\Users\user\AppData\Roaming\Typora\typora-user-images\image-20220807151935088.png)
 
 ### flex 정리
 
