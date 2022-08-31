@@ -14,7 +14,7 @@ for t in range(T): # 테스트 케이스 입력
         board[i] = 1 # board에 충전소 저장
     
     now = 0 # 이동 후 현재 위치 저장할 공간
-    cnt = 0 # 충전 횟수 저장 고악ㄴ
+    cnt = 0 # 충전 횟수 저장 공간
 
     while now+K < N: # 종점에 도착할 떄 까지
         flag = 0 # 종점에 도착할 수 없는 경우 확인을 위한 flag
@@ -24,6 +24,8 @@ for t in range(T): # 테스트 케이스 입력
                 now = i # 충전 위치로 현재 위치 변경
                 flag = 1 # 종점 도착 불가 아님을 표시
                 break
+        # else:
+        #     cnt = 0
         if flag == 0: # 최대 거리 내에 충전할 곳이 없으면 flag가 안켜짐
             cnt = 0 # 0 반환을 위해 
             break

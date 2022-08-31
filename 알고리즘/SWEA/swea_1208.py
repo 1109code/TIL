@@ -1,17 +1,6 @@
 # swea_1208_flatten 문제풀이
 # 2022-08-09
 
-# for t in range(10):
-#     dump = int(input())
-#     board = list(map(int,input().split()))
-#     count_board = [0 for i in range(100)]
-#     for i in range(100):
-#         count_board[board[i]-1] += 1
-#     while dump!=0:
-
-######## 내장함수 안쓰고 못풀겠음..#############
-###### 내장함수 안쓰고 다시 풀어보기... ##########
-
 # 최대값 에서 하나 빼서
 # 최소값에 하나 더하기
 # dumping 횟수만큼 반복
