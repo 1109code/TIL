@@ -1,4 +1,4 @@
-word = '123'
-a = int(word[:])
-a += 12
-print(a)
+k = [1, 2, 3]
+
+for i in range(3):
+    print(k[-i])
