@@ -12,6 +12,10 @@
     <option name="myDocStringFormat" value="Plain" />
   </component>
   <component name="TestRunnerService">
+<<<<<<< HEAD
+    <option name="PROJECT_TEST_RUNNER" value="pytest" />
+=======
     <option name="PROJECT_TEST_RUNNER" value="py.test" />
+>>>>>>> dfb980fd9326db30e8659fc4cee90626136a699d
   </component>
 </module>
