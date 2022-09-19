@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Article
 from .forms import ArticleForm
 from django.views.decorators.http import require_http_methods, require_POST, require_safe
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 @require_safe
@@ -19,6 +20,7 @@ def index(request):
 #     }
 #     return render(request, 'articles/new.html', context)
 
+@login_required
 @require_http_methods(['GET', 'POST'])
 def create(request):
     if request.method == 'POST':
@@ -59,11 +61,15 @@ def detail(request, pk):
 
 @require_POST
 def delete(request, pk):
-    article = Article.objects.get(pk=pk)
-    if request.method == 'POST':
+    if request.user.is_authenticated:
+        article = Article.objects.get(pk=pk)
         article.delete()
-        return redirect('articles:index')
-    return redirect('articles:detail', article.pk)
+    return redirect('articles:index')
+    # article = Article.objects.get(pk=pk)
+    # if request.method == 'POST':
+    #     article.delete()
+    #     return redirect('articles:index')
+    # return redirect('articles:detail', article.pk)
 
 # def edit(request, pk):
 #     article = Article.objects.get(pk=pk)
@@ -74,12 +80,14 @@ def delete(request, pk):
 #     }
 #     return render(request, 'articles/edit.html', context)
 
+
+@login_required
 @require_http_methods(['GET', 'POST'])
 def update(request, pk):
     article = Article.objects.get(pk=pk)
     if request.method == 'POST':
         form = ArticleForm(request.POST, instance=article)
-        if form.is_valide():
+        if form.is_valid():
             form.save()
             return redirect('articles:detail', article.pk)
     else:
