@@ -1,38 +1,44 @@
-# BOJ_1967 트리의 지름 문제푸리
+# BOJ_1967 트리의 지름 문제풀이
 # 2022-09-20
-def post(n):
-    global max_len
-    if n:
-        for i in ch[n]:
-            post(i)
-        cur_sum = 0
 
-        for i in ch[n]:
-            if
-cur_len[i] + length[i]
+def search(s):
+    global max_len, target, cur_len, ch
 
-        if cur_sum >= max_len:
-            max_len = cur_sum
+    if s:
+        for child in ch[s]:
+            if visited[child[1]] == 0:
+                visited[child[1]] += 1
+                cur_len += child[0]
 
-        for i in ch[n]:
-            if cur_len[i] + length[i] >= cur_len[n]:
-                cur_len[n] = cur_len[i] + length[i]
+                if cur_len >= max_len:
+                    max_len = cur_len
+                    target = child[1]
+
+                search(child[1])
+
+                cur_len -= child[0]
+                visited[child[1]] -= 1
 
 
 N = int(input())
 
+nodes = [0]
+
 ch = [[] for _ in range(N + 1)]
-
-# par = [0 for _ in range(N + 1)]
-length = [0 for _ in range(N + 1)]
-cur_len = [0 for _ in range(N + 1)]
+length = [0] * (N + 1)
+cur_len = 0
 max_len = 0
+target = 0
+visited = [0] * (N + 1)
 
-for e in range(N - 1):
+
+for i in range(N-1):
     info = list(map(int, input().split()))
-    ch[info[0]].append(info[1])
-    # par[info[1]] = info[0]
-    length[info[1]] = info[2]
+    ch[info[0]].append([info[2], info[1]])
+    ch[info[1]].append([info[2], info[0]])
 
-post(1)
+
+search(1)
+search(target)
+
 print(max_len)
