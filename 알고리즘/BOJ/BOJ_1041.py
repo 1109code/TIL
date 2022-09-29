@@ -20,7 +20,7 @@ else:
 
     for i in range(6):
         for j in range(i+1, 6):
-            if (i == 0 and j == 5) or (i == 1 and j == 4) or (i == 2 and j == 3):
+            if (i == 0 and j == 5) or (i == 1 and j == 4) or (i == 2 and j == 3):   # 두 면이 붙어있는 경우가 아닐 때
                 pass
             else:
                 if dice[i] + dice[j] < two_min:
@@ -31,13 +31,13 @@ else:
     # 3면이 보이는 경우
     # 4
     three_min = 150
-    dice_nums = [1, 2, 4, 3, 1]
+    dice_nums = [1, 2, 4, 3, 1]                                                     # 옆면이 연속으로 되어 있으면 편해서 연속으로 되는 순서 저장
 
-    for i in range(4):
-        if dice[0] + dice[dice_nums[i]] + dice[dice_nums[i + 1]] < three_min:
+    for i in range(4):                                                              # 옆면 순서대로 순회하며
+        if dice[0] + dice[dice_nums[i]] + dice[dice_nums[i + 1]] < three_min:       # 밑면이랑 옆면 연숙 2면의 합이 최소이면 초기화
             three_min = dice[0] + dice[dice_nums[i]] + dice[dice_nums[i + 1]]
 
-        if dice[-1] + dice[dice_nums[i]] + dice[dice_nums[i + 1]] < three_min:
+        if dice[-1] + dice[dice_nums[i]] + dice[dice_nums[i + 1]] < three_min:      # 윗면이랑 옆면 연속 2면의 합이 최소이면 초기화
             three_min = dice[-1] + dice[dice_nums[i]] + dice[dice_nums[i + 1]]
 
     num_sum += three_min * 4

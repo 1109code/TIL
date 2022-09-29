@@ -1,43 +1,33 @@
 def dijkstra(N, X, adj, d):
-    for i in range(N+1):
+    for i in range(N):
         d[i] = adj[X][i]
-
-    U = [X]
-
-    for _ in range(N-1):
-        w = 0
-        for i in range(1, N+1):
-            if (i not in U) and d[i] < d[w]:
-                w = i
-        U.append(w)
-        for v in range(1, N+1):
-            if 0 < adj[w][v] < 1000000:
-                d[v] = min(d[v], d[w] + adj[w][v])
+    visited[X] = True
+    for _ in range(N):
+        w = float('inf')
+        for i in range(N):
+            if not visited[i] and d[i] < w:
+                target = i
+                w = d[i]
+        visited[target] = True
+        for v in range(N):
+            if 0 < adj[target][v] < float('inf'):
+                d[v] = min(d[v], d[target] + adj[target][v])
+    return
 
 
 T = int(input())
-for tc in range(1, T+1):
-    N, M, X = map(int, input().split())
-    adj1 = [[1000000]*(N+1) for _ in range(N+1)]
-
-    for i in range(N+1):
-        adj1[i][i] = 0
-
-    for _ in range(M):
-        x, y, c = map(int, input().split())
-        adj1[x][y] = c
-
-    dout = [0] * (N+1)
-    dijkstra(N, X, adj1, dout)
-
-    max_len = 0
-
-    for i in range(1, N + 1):
-        dout2 = [0] * (N+1)
-        dijkstra(N, i, adj1, dout2)
-        cur_len = dout[i] + dout2[X]
-
-        if cur_len > max_len:
-            max_len = cur_len
-
-    print(f'#{tc} {cur_len + dout[X]}')
+for tc in range(1, T + 1):
+    # N : 끝번호
+    N, E = map(int, input().split())
+    # 정점의 개수 v
+    V = N + 1
+    adj = [[float('inf')] * V for _ in range(V)]
+    for i in range(V):
+        adj[i][i] = 0
+    for _ in range(E):
+        s, e, w = map(int, input().split())
+        adj[s][e] = w
+    visited = [False] * V
+    dout = [0] * V
+    dijkstra(V, 0, adj, dout)
+    print('#{} {}' .format(tc, dout[-1]))
