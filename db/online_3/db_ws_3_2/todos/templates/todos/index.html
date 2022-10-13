@@ -9,7 +9,13 @@
 	{% for todo in todos %}
 		<p>{{ todo.author }} - {{ todo.title }}</p>
 		<input type="checkbox" checked data-toggle="toggle" data-on="hi" data-off="hello"><br>
-		<input type="submit" value="DELETE">
+		
+		{% if flag == 1 %}
+			<input type="submit" value="완료하기">
+		{% elif flag == 0 %}
+			<input type="submit" value="취소하기">
+		{% endif %}
+
 		<input type="submit" value="DELETE">
 		{% empty %}
 			<li>작성된 글이 없습니다.</li>
