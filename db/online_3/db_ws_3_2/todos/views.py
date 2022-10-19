@@ -30,3 +30,10 @@ def create(request):
         }
         return render(request, 'todos/create.html', context)
     return render(request, 'accounts/login.html', context)
+
+
+def complete(request):
+    context = {
+        
+    }
+    return render(request, 'todos/index.html', context)
