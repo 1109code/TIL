@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Detail</h1>
+  <a href="{% url 'movies:index' %}">back</a>
+  <h2>{{ movie.title }}</h2>
+  <img src="{{ movie.poster_path }}" alt="">
+  <p>{{ movie.release_date }}</p>
+  <p>{{ movie.popularity }}</p>
+  <p>{{ movie.vote_count }}</p>
+  <p>{{ movie.vote_average }}</p>
+  <p>{{ movie.overview }}</p>
+{% endblock %}
