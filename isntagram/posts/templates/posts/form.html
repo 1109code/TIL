@@ -1,0 +1,23 @@
+{% extends 'base.html' %}\
+
+{% block content %}
+{% load django_bootstrap5 %}
+    {% if request.resolver_match.url_name == 'create' %}
+        <h1>NEW POST</h1>
+        <form action="{% url 'posts:create' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            {% comment %} {{ form.as_p }} {% endcomment %}
+            <input type="submit">
+        </form>
+    {% else %}
+        <h1>UPDATE</h1>
+        <form action="{% url 'posts:update' post.pk %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            {% comment %} {{ form.as_p }} {% endcomment %}
+            <input type="submit">
+        </form>
+    {% endif %}
+    <hr>
+{% endblock content %}

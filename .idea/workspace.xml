@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="49f205ff-1dab-481c-910a-e10c2f2c0ebe" name="Default Changelist" comment="" />
+    <list default="true" id="49f205ff-1dab-481c-910a-e10c2f2c0ebe" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/isntagram/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/isntagram/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/isntagram/instapjt/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/isntagram/instapjt/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/isntagram/instapjt/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/isntagram/instapjt/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/isntagram/posts/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/isntagram/posts/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/isntagram/posts/migrations/0002_post_image.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/isntagram/posts/templates/posts/create.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/isntagram/posts/templates/posts/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/isntagram/posts/templates/posts/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/isntagram/posts/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/isntagram/posts/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/isntagram/posts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/isntagram/posts/views.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,15 +20,21 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="2F0ZpNVW8aVvFXevDiGFwGpkeRs" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="49f205ff-1dab-481c-910a-e10c2f2c0ebe" name="Default Changelist" comment="" />
@@ -28,5 +44,16 @@
       <updated>1663631145283</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
