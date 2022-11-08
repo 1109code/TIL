@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load django_bootstrap5 %}
 
 {% block content %}
   <h2 class="text-center">DETAIL</h2>
@@ -13,29 +14,50 @@
   <hr>
   <h4>댓글 목록</h4>
   {% if comments|length %}
-    <p><b>{{ comments|length }}개의 댓글이 있습니다.</b></p>
+  <p><b>{{ comments|length }}개의 댓글이 있습니다.</b></p>
   {% endif %}
+
+  {% comment %} 댓글이 보여지는 장소 {% endcomment %}
   {% for comment in comments %}
     <div>
-      {{ comment.user }} - {{ comment.content }}
-
+      <ul>
+        <li>
+          {{ comment.user }} - {{ comment.content }}
+        </li>
+        <ul>
+          {% for cocomment in comment.cocomment_set.all %}
+          <li>
+            <div>{{ cocomment.user }} - {{ cocomment.content }}</div>
+          </li>
+          {% endfor %}
+          <li>
+            {% comment %} 대댓글 {% endcomment %}
+            <form action="{% url 'community:create_cocomment' review.pk comment.pk %}" method="POST">
+              {% csrf_token %}
+              {% bootstrap_form cocomment_form %}
+              <input type="submit">
+            </form>
+          </li>
+        </ul>
+      </ul>
+      
     </div>
   {% empty %}
     <p><b>댓글이 없어요..</b></p>
   {% endfor %}
+
+
   <hr>
+  {% comment %} 댓글 Form {% endcomment %}
   {% if user.is_authenticated %}
   <ul>
-    <form action="{% url 'community:create_comment' review.pk %}" method="POST">
-      {% csrf_token %}
-      {{ comment_form }}
-      <input type="submit">
-      <form action="{% url 'community:create_cocomment' comment.pk%}" method="POST">
+    <li>
+      <form action="{% url 'community:create_comment' review.pk %}" method="POST">
         {% csrf_token %}
-        {{ comment_form }}
+        {% bootstrap_form comment_form %}
         <input type="submit">
       </form>
-    </form>
+    </li>
   </ul>
   {% else %}
     <a href="{% url 'accounts:login' %}">[댓글을 작성하려면 로그인하세요.]</a>

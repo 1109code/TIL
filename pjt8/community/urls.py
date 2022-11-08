@@ -9,6 +9,6 @@ urlpatterns = [
     path('<int:review_pk>/', views.detail, name='detail'),
     path('<int:review_pk>/comments/create/', views.create_comment, name='create_comment'),
     path('<int:review_pk>/like/', views.like, name='like'),
-    path('<int:comment_pk>/cocomments/create/', views.create_cocomment, name='create_cocomment'),
+    path('<int:review_pk>/<int:comment_pk>/cocomments/create/', views.create_cocomment, name='create_cocomment'),
     # path('<int:review_pk>/<int:comment_pk>/like/', views.like, name='like'),
 ]
