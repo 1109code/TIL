@@ -5,6 +5,9 @@ from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm
+from django.contrib.auth import get_user_model
+
+from .models import Profile
 from .forms import CustomUserCreationForm, CustomUserChangeForm
 
 # Create your views here.
@@ -80,3 +83,11 @@ def change_password(request):
         'form': form,
     }
     return render(request, 'accounts/password.html', context)
+
+
+def profile(request, username):
+    profile = Profile.objects.get(username=username)
+    context = {
+        'profile': profile,
+    }
+    return render(request, 'accounts/profile.html', context)

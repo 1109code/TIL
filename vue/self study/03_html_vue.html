@@ -10,14 +10,35 @@
   <div id="app">
     <p id="name">name : {{ message }} </p>
     <input id="inputName" type="text" v-model="message">
+    <p>HTML 메시지 : 
+      <span v-html="rawHTML"></span>
+      <p v-html="html"></p>
+      <p v-show="isActive">Can see?</p>
+      <p v-if="isActive">Can see?</p>
+     <h3>{{ myMessage }}</h3>
+     <input v-model="myMessage" type="text">
+    </p>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.js"></script>
   <script>
     const app = new Vue({
       el: '#app',
       data: {
-        message: 'son',
+        message: 'Text interpolation',
+        rawHTML: '<span style="color:red"> 빨간 글씨 </span>',
+        html: '<a href="https://www.google.com">GOOGLE</a>',
+        isActive: true,
+        myStr: 'Hello, World1',
+        myMessage: '',
       },
+      methods: {
+        print: function() {
+          console.log(this.message)
+        },
+        bye: function() {
+          this.message = 'Bye, Vue!'
+        },
+      }
     })
   </script>
 </body>
