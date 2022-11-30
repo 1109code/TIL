@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="49f205ff-1dab-481c-910a-e10c2f2c0ebe" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/isntagram/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/isntagram/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/isntagram/instapjt/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/isntagram/instapjt/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/isntagram/instapjt/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/isntagram/instapjt/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/isntagram/posts/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/isntagram/posts/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/isntagram/posts/migrations/0002_post_image.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/isntagram/posts/templates/posts/create.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/isntagram/posts/templates/posts/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/isntagram/posts/templates/posts/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/isntagram/posts/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/isntagram/posts/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/isntagram/posts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/isntagram/posts/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,12 +20,12 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
