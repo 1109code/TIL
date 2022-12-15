@@ -2,7 +2,7 @@
 
 ## 프로세스(Process)와 스레드(Trhead)
 
-![image-20221207150553785](Chatper4.assets/image-20221207150553785.png)
+![image-20221207150553785](Chapter4.assets/image-20221207150553785.png)
 
 >  제어 부분이 쓰레드, 여러개일 수 있음
 
@@ -10,7 +10,7 @@
 
 ## 스레드(Thread)의 개념
 
-![image-20221207150742807](Chatper4.assets/image-20221207150742807.png)
+![image-20221207150742807](Chapter4.assets/image-20221207150742807.png)
 
 > 프로세스는 제어와 리소스로 나뉨
 >
@@ -18,7 +18,7 @@
 >
 > 프로세스가 할당 받은 자원은 공유함, 이를 제어하는건 여러개 일 수 있는 거임
 
-![image-20221207150853172](Chatper4.assets/image-20221207150853172.png)
+![image-20221207150853172](Chapter4.assets/image-20221207150853172.png)
 
 > 각 스레드마다 스택 영역을 가짐
 >
@@ -45,7 +45,7 @@
 
 ## Single-Thread vs Multi-threads
 
-![image-20221207151123829](Chatper4.assets/image-20221207151123829.png)
+![image-20221207151123829](Chapter4.assets/image-20221207151123829.png)
 
 
 
@@ -66,7 +66,7 @@
 * 멀티 프로세서(multi-processor) 활용
   * 병렬처리를 통해 성능 향상
 
-![image-20221207151413987](Chatper4.assets/image-20221207151413987.png)
+![image-20221207151413987](Chapter4.assets/image-20221207151413987.png)
 
 > IO 발생하면 run => block으로,
 >
@@ -74,7 +74,7 @@
 
 
 
-![image-20221207151659074](Chatper4.assets/image-20221207151659074.png)
+![image-20221207151659074](Chapter4.assets/image-20221207151659074.png)
 
 
 
@@ -82,27 +82,27 @@
 
 ### 사용자 수준 스레드(User Thread)
 
-![image-20221207151812341](Chatper4.assets/image-20221207151812341.png)
+![image-20221207151812341](Chapter4.assets/image-20221207151812341.png)
 
-![image-20221207151826556](Chatper4.assets/image-20221207151826556.png)
+![image-20221207151826556](Chapter4.assets/image-20221207151826556.png)
 
 ### 커널 수준 스레드 (Kernel Threads)
 
-![image-20221207152047844](Chatper4.assets/image-20221207152047844.png)
+![image-20221207152047844](Chapter4.assets/image-20221207152047844.png)
 
-![image-20221207152056279](Chatper4.assets/image-20221207152056279.png)
+![image-20221207152056279](Chapter4.assets/image-20221207152056279.png)
 
-![image-20221207152216865](Chatper4.assets/image-20221207152216865.png)
+![image-20221207152216865](Chapter4.assets/image-20221207152216865.png)
 
 ### Multi-Threading Model
 
-![image-20221207152228616](Chatper4.assets/image-20221207152228616.png)
+![image-20221207152228616](Chapter4.assets/image-20221207152228616.png)
 
-![image-20221207152247890](Chatper4.assets/image-20221207152247890.png)
+![image-20221207152247890](Chapter4.assets/image-20221207152247890.png)
 
 > 사용자, 커널 중심 스레드 다 취함
 
-![image-20221207152339918](Chatper4.assets/image-20221207152339918.png)
+![image-20221207152339918](Chapter4.assets/image-20221207152339918.png)
 
 > 실제로 OS들이 사용하는 모델
 
