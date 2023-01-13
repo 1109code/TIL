@@ -1,10 +1,10 @@
-class Player {
-  String name = 'nico';
-  int xp = 1500;
-}
+String sayHello(String name, int age, [String? country = 'korea']) =>
+    'Hello $name, you are $age years old from $country';
 
 void main() {
-  var player = Player();
-  player.name = 'lalala';
-  print(player.name);
+  var results = sayHello(
+    'son',
+    28,
+  );
+  print(results);
 }
