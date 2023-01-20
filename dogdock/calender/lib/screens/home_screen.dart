@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:table_calendar/table_calendar.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 // eventLoader에 쓰일 임의 clas
 
@@ -106,7 +108,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     titleCentered: true,
                     titleTextFormatter: (date, locale) =>
-                        DateFormat.yMMMMd(locale).format(date),LocaleDataException (LocaleDataException: Locale data has not been initialized, call initializeDateFormatting(<locale>)
+                        DateFormat.yMMMMd(locale).format(date),
                     formatButtonVisible: false,
                     titleTextStyle: const TextStyle(
                       fontSize: 20,

@@ -19,7 +19,7 @@ class _CalendarState extends State<Calendar> {
 
   // 이벤트 간격 일정 유지
   Map<DateTime, List<dynamic>>? _events;
-  List<dynamic>? _selectedEvents;
+  List<dynamic> _selectedEvents;
   // 내가 보고 있는 날짜
   DateTime focusedDay = DateTime.now();
 
@@ -134,10 +134,48 @@ class _CalendarState extends State<Calendar> {
             this.focusedDay = focusedDay;
           });
         },
+
+        // onDaySelected: (date, events, holidays) {
+        //   setState(() {
+        //     _selectedEvents = events;
+        //   });
+        // },
         // 선택한 날짜의 색상을 변경
         selectedDayPredicate: (DateTime day) {
           return isSameDay(selectedDay, day);
         },
+        calendarBuilders: CalendarBuilders(
+          selectedBuilder: (context, date, events) => Container(
+            margin: const EdgeInsets.all(4),
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              color: Colors.purple,
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Text(
+              date.day.toString(),
+              style: const TextStyle(color: Colors.white),
+            ),
+          ),
+          todayBuilder: (context, date, events) => Container(
+              margin: const EdgeInsets.all(4),
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                color: Colors.orange,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Text(
+                date.day.toString(),
+                style: const TextStyle(
+                  color: Colors.white,
+                ),
+              )),
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.black,
+        onPressed: _showAddDialog,
+        child: const Icon(Icons.add),
       ),
     );
   }
