@@ -1,9 +1,12 @@
-import 'package:flutter/material.dart';
 import 'package:hello_world/component/calendar.dart';
 import 'package:hello_world/component/schedule_bottom_sheet.dart';
 import 'package:hello_world/component/schedule_card.dart';
 import 'package:hello_world/component/today_banner.dart';
 import 'package:hello_world/const/colors.dart';
+import 'package:flutter/material.dart';
+import 'package:hello_world/database/drift_database.dart';
+import 'package:get_it/get_it.dart';
+import 'package:hello_world/model/schedule_with_color.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -13,7 +16,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  DateTime selectedDay = DateTime(
+  DateTime selectedDay = DateTime.utc(
     DateTime.now().year,
     DateTime.now().month,
     DateTime.now().day,
@@ -36,12 +39,13 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             TodayBanner(
               selectedDay: selectedDay,
-              scheduleCount: 3,
             ),
             const SizedBox(
               height: 8,
             ),
-            const _ScheduleList(),
+            _ScheduleList(
+              selectedDate: selectedDay,
+            ),
           ],
         ),
       ),
@@ -58,7 +62,9 @@ class _HomeScreenState extends State<HomeScreen> {
           // 최대로 올라감
           isScrollControlled: true,
           builder: (_) {
-            return const ScheduleBottomSheet();
+            return ScheduleBottomSheet(
+              selectedDate: selectedDay,
+            );
           },
         );
       },
@@ -78,8 +84,11 @@ class _HomeScreenState extends State<HomeScreen> {
 }
 
 class _ScheduleList extends StatelessWidget {
+  final DateTime selectedDate;
+
   const _ScheduleList({
     Key? key,
+    required this.selectedDate,
   }) : super(key: key);
 
   @override
@@ -90,22 +99,68 @@ class _ScheduleList extends StatelessWidget {
           horizontal: 8,
         ),
         // 스크롤 가능
-        child: ListView.separated(
-          itemCount: 100,
-          separatorBuilder: (context, index) {
-            return const SizedBox(
-              height: 8,
-            );
-          },
-          itemBuilder: (context, index) {
-            return ScheduleCard(
-              startTime: 8,
-              endTime: 14,
-              content: '프로그래밍 공부, $index',
-              color: Colors.red,
-            );
-          },
-        ),
+        child: StreamBuilder<List<ScheduleWithColor>>(
+            stream: GetIt.I<LocalDatabase>().watchSchedules(
+              selectedDate,
+            ),
+            builder: (context, snapshot) {
+              print(snapshot.data);
+              if (!snapshot.hasData) {
+                return const Center(child: CircularProgressIndicator());
+              }
+              if (snapshot.hasData && snapshot.data!.isEmpty) {
+                return const Center(
+                  child: Text('스케줄이 없습니다.'),
+                );
+              }
+
+              return ListView.separated(
+                itemCount: snapshot.data!.length,
+                separatorBuilder: (context, index) {
+                  return const SizedBox(
+                    height: 8,
+                  );
+                },
+                itemBuilder: (context, index) {
+                  final scheduleWithColor = snapshot.data![index];
+
+                  return Dismissible(
+                    key: ObjectKey(scheduleWithColor.schedule.id),
+                    direction: DismissDirection.endToStart,
+                    onDismissed: (DismissDirection direction) {
+                      GetIt.I<LocalDatabase>()
+                          .removeSchedule(scheduleWithColor.schedule.id);
+                    },
+                    child: GestureDetector(
+                      onTap: () {
+                        showModalBottomSheet(
+                          context: context,
+                          // 최대로 올라감
+                          isScrollControlled: true,
+                          builder: (_) {
+                            return ScheduleBottomSheet(
+                              selectedDate: selectedDate,
+                              scheduleId: scheduleWithColor.schedule.id,
+                            );
+                          },
+                        );
+                      },
+                      child: ScheduleCard(
+                        startTime: scheduleWithColor.schedule.startTime,
+                        endTime: scheduleWithColor.schedule.endTime,
+                        content: scheduleWithColor.schedule.content,
+                        color: Color(
+                          int.parse(
+                            'FF${scheduleWithColor.categoryColor.hexCode}',
+                            radix: 16,
+                          ),
+                        ),
+                      ),
+                    ),
+                  );
+                },
+              );
+            }),
       ),
     );
   }
