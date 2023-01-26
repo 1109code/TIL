@@ -1,4 +1,5 @@
 import 'package:dogdoc_calendar/component/calendar.dart';
+import 'package:dogdoc_calendar/screen/schedule_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -26,6 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
     double height = screenSize.height;
 
     return Scaffold(
+      floatingActionButton: renderFloatingActionButton(),
       // SafeArea : UI 화면안에 잘 들어오게
       body: SafeArea(
         child: Column(
@@ -33,6 +35,22 @@ class _HomeScreenState extends State<HomeScreen> {
             Calendar(focusedDay: focusedDay),
           ],
         ),
+      ),
+    );
+  }
+
+  FloatingActionButton renderFloatingActionButton() {
+    return FloatingActionButton(
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const ScheduleScreen()),
+        );
+      },
+      backgroundColor: const Color(0xFF033B0B),
+      child: const Icon(
+        Icons.add,
+        color: Colors.white,
       ),
     );
   }

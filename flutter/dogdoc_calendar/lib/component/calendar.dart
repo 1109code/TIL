@@ -79,7 +79,7 @@ class Calendar extends StatelessWidget {
         ),
         // 주일
         weekendStyle: TextStyle(
-          fontFamily: 'bmjua.ttf',
+          fontFamily: 'bmjua',
           color: Colors.white,
           fontSize: 20,
           fontWeight: FontWeight.w800,
@@ -131,14 +131,14 @@ class Calendar extends StatelessWidget {
         // 달력 일자 일반일 텍스트 스타일
         defaultTextStyle: TextStyle(
           color: Colors.black,
-          fontFamily: 'bmjua.ttf',
-          fontWeight: FontWeight.w400,
+          fontFamily: 'bmjua',
+          // fontWeight: FontWeight.w400,
         ),
         // 달력 일자 주말 텍스트 스타일
         weekendTextStyle: TextStyle(
           color: Colors.red,
-          fontFamily: 'bmjua.ttf',
-          fontWeight: FontWeight.w400,
+          fontFamily: 'bmjua',
+          // fontWeight: FontWeight.w400,
         ),
       ),
       eventLoader: _getEventForDay,
