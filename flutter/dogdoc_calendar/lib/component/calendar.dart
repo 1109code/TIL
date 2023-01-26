@@ -45,11 +45,12 @@ class Calendar extends StatelessWidget {
       headerStyle: const HeaderStyle(
         // 주별, 월별 포맷 제거
         formatButtonVisible: false,
+        headerPadding: EdgeInsets.only(top: 3, bottom: 3),
         titleCentered: true,
         titleTextStyle: TextStyle(
           fontFamily: 'bmjua',
           // fontWeight: FontWeight.w700,
-          fontSize: 18,
+          fontSize: 19,
           color: Colors.white,
         ),
         // Chevron
@@ -67,22 +68,21 @@ class Calendar extends StatelessWidget {
           color: Color.fromARGB(255, 100, 92, 170),
         ),
       ),
-
       // 요일 디자인
-      daysOfWeekHeight: height * 0.04,
+      daysOfWeekHeight: height * 0.035,
       daysOfWeekStyle: const DaysOfWeekStyle(
         // 평일
         weekdayStyle: TextStyle(
           color: Colors.white,
-          fontSize: 20,
-          fontWeight: FontWeight.w600,
+          fontSize: 18,
+          fontWeight: FontWeight.w900,
         ),
         // 주일
         weekendStyle: TextStyle(
           fontFamily: 'bmjua',
           color: Colors.white,
-          fontSize: 20,
-          fontWeight: FontWeight.w800,
+          fontSize: 18,
+          fontWeight: FontWeight.w900,
           // fontWeight: FontWeight.w600,
         ),
         decoration: BoxDecoration(
@@ -101,20 +101,23 @@ class Calendar extends StatelessWidget {
         // 마커
         // 마커가 칸 안넘어가게
         canMarkersOverflow: false,
-        markerSize: 20,
+        // markerSize: 3,
         // markerSizeScale: 30,
-        markersAutoAligned: true,
+        // markersAutoAligned: true,
         // 마커 기준점 조정
-        markersAnchor: 2,
+        // markersAnchor: 0.5,
         // 마커 위치 조정
-        markersAlignment: Alignment.topCenter,
+        // markersAlignment: Alignment.center,
         // 한줄에 보여지는 마커 갯수
-        // markersMaxCount: 4,
+        // markersMaxCount: 3,
         markerDecoration: BoxDecoration(
           color: Colors.red,
           shape: BoxShape.circle,
         ),
-
+        // markersOffset: PositionedOffset(
+        //   top: 50,
+        //   start: 50,
+        // ),
         // 테이블 경계선 넣기
         tableBorder: TableBorder(
           verticalInside: BorderSide(
@@ -132,13 +135,13 @@ class Calendar extends StatelessWidget {
         defaultTextStyle: TextStyle(
           color: Colors.black,
           fontFamily: 'bmjua',
-          // fontWeight: FontWeight.w400,
+          fontWeight: FontWeight.w400,
         ),
         // 달력 일자 주말 텍스트 스타일
         weekendTextStyle: TextStyle(
           color: Colors.red,
           fontFamily: 'bmjua',
-          // fontWeight: FontWeight.w400,
+          fontWeight: FontWeight.w400,
         ),
       ),
       eventLoader: _getEventForDay,
@@ -147,16 +150,52 @@ class Calendar extends StatelessWidget {
       //     return CalendarCellBuilder(context, dateTime, _, 0);
       //   },
       // ),
-      calendarBuilders:
-          CalendarBuilders(singleMarkerBuilder: (context, date, event) {
-        return Container(
-          decoration: const BoxDecoration(
-            shape: BoxShape.circle,
-            color: Colors.red,
+      calendarBuilders: CalendarBuilders(
+          // singleMarkerBuilder: (context, date, event) {
+          //   return Container(
+          //     decoration: const BoxDecoration(
+          //       shape: BoxShape.circle,
+          //       color: Colors.red,
+          //     ),
+          //     width: 20,
+          //     height: 20,
+          //   );
+          // },
+          markerBuilder: (context, day, events) {
+        if (events.isEmpty) return const SizedBox();
+        return Padding(
+          padding: const EdgeInsets.only(top: 30),
+          child: ListView.builder(
+            // shrinkWrap: true,
+            scrollDirection: Axis.vertical,
+            itemCount: events.length,
+            itemBuilder: (context, index) {
+              return Padding(
+                padding: const EdgeInsets.only(
+                  left: 3.0,
+                  right: 3.0,
+                  bottom: 3.0,
+                ),
+                child: Container(
+                  height: 15,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.rectangle,
+                    color: const Color.fromARGB(255, 100, 92, 170),
+                    borderRadius: BorderRadius.circular(3),
+                  ),
+                ),
+              );
+            },
           ),
-          width: 8,
-          height: 8,
         );
+        //  Container(
+        //     width: 24,
+        //     height: 24,
+        //     alignment: Alignment.center,
+        //     decoration: const BoxDecoration(
+        //       color: Colors.red,
+        //     ),
+        //   )
       }),
     );
   }
