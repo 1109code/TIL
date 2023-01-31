@@ -8,7 +8,7 @@ void main() async {
 
   runApp(
     const MaterialApp(
-      home: HomeScreen(),
+      home: SafeArea(child: HomeScreen()),
     ),
   );
 }

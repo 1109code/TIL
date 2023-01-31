@@ -161,6 +161,8 @@ class Calendar extends StatelessWidget {
           //     height: 20,
           //   );
           // },
+
+          // 마커 디자인
           markerBuilder: (context, day, events) {
         if (events.isEmpty) return const SizedBox();
         return Padding(

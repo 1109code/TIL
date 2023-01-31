@@ -27,30 +27,42 @@ class _HomeScreenState extends State<HomeScreen> {
     double height = screenSize.height;
 
     return Scaffold(
+      backgroundColor: Colors.white,
       floatingActionButton: renderFloatingActionButton(),
       // SafeArea : UI 화면안에 잘 들어오게
-      body: SafeArea(
-        child: Column(
-          children: [
-            Calendar(focusedDay: focusedDay),
-          ],
-        ),
+      body: Column(
+        children: [
+          Calendar(focusedDay: focusedDay),
+        ],
       ),
     );
   }
 
-  FloatingActionButton renderFloatingActionButton() {
-    return FloatingActionButton(
-      onPressed: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => const ScheduleScreen()),
-        );
-      },
-      backgroundColor: const Color(0xFF033B0B),
-      child: const Icon(
-        Icons.add,
-        color: Colors.white,
+  renderFloatingActionButton() {
+    return Container(
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        border: Border.all(
+            color: const Color.fromARGB(255, 100, 92, 170),
+            width: 3,
+            style: BorderStyle.solid),
+      ),
+      width: 48,
+      height: 48,
+      child: FloatingActionButton.small(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const ScheduleScreen()),
+          );
+        },
+        // focusColor: Colors.black,
+        backgroundColor: Colors.white,
+        child: const Icon(
+          Icons.add,
+          color: Color.fromARGB(255, 100, 92, 170),
+          size: 40,
+        ),
       ),
     );
   }

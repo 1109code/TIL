@@ -67,7 +67,36 @@ class ScheduleEditBollean extends StatelessWidget {
               ),
             ],
           ),
+          const SizedBox(
+            height: 10,
+          ),
           bool_input(width: width),
+          const SizedBox(
+            height: 10,
+          ),
+          Row(
+            // mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                height: 36,
+                width: 5,
+                decoration: BoxDecoration(
+                  color: const Color.fromARGB(255, 100, 92, 170),
+                  borderRadius: BorderRadius.circular(5),
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                child: Text(
+                  '오늘의 일기',
+                  style: TextStyle(
+                    fontFamily: 'bmjua',
+                    fontSize: 32,
+                  ),
+                ),
+              ),
+            ],
+          ),
         ],
       ),
     );
