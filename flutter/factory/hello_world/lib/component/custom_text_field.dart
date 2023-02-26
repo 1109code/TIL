@@ -4,6 +4,7 @@ import 'package:hello_world/const/colors.dart';
 
 class CustomTextField extends StatelessWidget {
   final String label;
+  final String initialValue;
   // true - 시간, false - 내용
   final bool isTime;
   final FormFieldSetter<String> onSaved;
@@ -13,6 +14,7 @@ class CustomTextField extends StatelessWidget {
     required this.label,
     required this.isTime,
     required this.onSaved,
+    required this.initialValue,
   });
 
   @override
@@ -66,6 +68,7 @@ class CustomTextField extends StatelessWidget {
       // 줄 바꿈
       maxLines: isTime ? 1 : null,
       expands: !isTime,
+      initialValue: initialValue,
       // maxLength: 500,
       // 키보드 변경
       keyboardType: isTime ? TextInputType.number : TextInputType.multiline,
@@ -81,6 +84,7 @@ class CustomTextField extends StatelessWidget {
         // 이걸 해야 색을 넣을 수 있음
         filled: true,
         fillColor: Colors.grey[300],
+        suffixText: isTime ? '시' : null,
       ),
     );
   }

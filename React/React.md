@@ -97,9 +97,9 @@ Elements의 생김새
 
 리액트 엘리먼트는 자바스크립트 객체로 존재
 
-![image-20230108150013723](C:\Users\SSAFY\Desktop\React\assets\image-20230108150013723.png)
+![image-20230108150013723](C:\Users\SSAFY\Desktop\GIT\TIL\React\React.assets\image-20230108150013723.png)
 
-![image-20230108150050852](C:\Users\SSAFY\Desktop\React\assets\image-20230108150050852.png)
+![image-20230108150050852](C:\Users\SSAFY\Desktop\GIT\TIL\React\React.assets\image-20230108150050852.png)
 
 
 
@@ -135,7 +135,7 @@ Component(붕어빵 틀)로 구워져 나온 Element(붕어빵)는 못바꾸는�
 
 ### 렌더링된 Element 업데이트 하기
 
-![image-20230108150548496](C:\Users\SSAFY\Desktop\React\assets\image-20230108150548496.png)
+![image-20230108150548496](C:\Users\SSAFY\Desktop\GIT\TIL\React\React.assets\image-20230108150548496.png)
 
 
 
@@ -276,7 +276,7 @@ this.setState({
 
 ### LifeCycle(생명 주기)
 
-![image-20230108160710250](C:\Users\SSAFY\Desktop\React\assets\image-20230108160710250.png)
+![image-20230108160710250](C:\Users\SSAFY\Desktop\GIT\TIL\React\React.assets\image-20230108160710250.png)
 
  Component가 계속 존재하는 것이 아니라, 시간의 흐름에 따라 생성되고 업데이트 되다가 사라진다.
 
