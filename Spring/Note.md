@@ -266,6 +266,9 @@ Spring Framework에서는 ApplicationContext.getBean()과 같은 메서드로 �
 
 ### 자바 코드로 스프링 빈 등록
 
+* 회원 서비스와 회원 리포지토리의 @Serivce, @Repository, @Autowired annotation을 제거하고 진행
+
+* 원래 XML 했는데 요즘엔 XML 잘 안씀
 생성자 주입 권장
 
 
