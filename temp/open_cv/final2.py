@@ -6,12 +6,14 @@ from collections import deque
 
 sys.setrecursionlimit(100000)
 
-src = cv2.imread("Image/fable7.jpg")
+src = cv2.imread("Image/fable11.png")
 
 # Gaussian blur 적용
 blurred_src = cv2.GaussianBlur(src, (3, 3), 300)
 
-gray = cv2.cvtColor(blurred_src, cv2.COLOR_BGR2GRAY)
+# blurred_src = cv2.bilateralFilter(src, 9, 75, 75)
+
+gray = cv2.cvtColor(src, cv2.COLOR_BGR2GRAY)
 
 # 히스토그램 평활화 적용
 equalized_gray = cv2.equalizeHist(gray)
@@ -28,9 +30,9 @@ def initial_sand_color():
 
 
 def random_sand_color():
-    r = random.randint(40, 80)
-    g = random.randint(0, 80)
-    b = random.randint(0, 80)
+    r = random.randint(0, 100)
+    g = random.randint(0, 40)
+    b = random.randint(0, 40)
     return (b, g, r)
 
 
@@ -65,14 +67,15 @@ def bfs(i, j, step):
         visited[i, j] = True
         output[i, j] = random_sand_color()
 
-        ran_show = int(random.randrange(1000, 5000))
+        ran_show = int(random.randrange(1000, 3000))
 
         if ((i * j) % (ran_show)) == 0:
             cv2.imshow("output", output)
             video.write(output)  # 현재 프레임 저장
-            cv2.waitKey(10)
+            cv2.waitKey(20)
 
         random.shuffle(directions)
+        # step = random.randrange(1, 5)
 
         for dx, dy in directions:
             ni, nj = i + dx * step, j + dy * step
@@ -89,15 +92,17 @@ def dfs(i, j, step, depth=0, max_recursion_depth=1000):
     visited[i, j] = True
     output[i, j] = random_sand_color()
 
-    ran_show = int(random.randrange(5000, 10000))
+    ran_show = int(random.randrange(1000, 3000))
 
     if ((i * j) % (ran_show)) == 0:
         cv2.imshow("output", output)
         video.write(output)  # 현재 프레임 저장
-        cv2.waitKey(10)
+        cv2.waitKey(20)
 
     if depth >= max_recursion_depth:
         return
+
+    # step = random.randrange(1, 5)
 
     offsets = list(range(-1 * step, 2 * step, step))
     random.shuffle(offsets)
