@@ -6,7 +6,7 @@ from collections import deque
 
 sys.setrecursionlimit(100000)
 
-src = cv2.imread("Image/fable11.png")
+src = cv2.imread("Image/fable8.jpg")
 
 # Gaussian blur 적용
 blurred_src = cv2.GaussianBlur(src, (3, 3), 300)
@@ -16,10 +16,10 @@ blurred_src = cv2.GaussianBlur(src, (3, 3), 300)
 gray = cv2.cvtColor(src, cv2.COLOR_BGR2GRAY)
 
 # 히스토그램 평활화 적용
-equalized_gray = cv2.equalizeHist(gray)
+# equalized_gray = cv2.equalizeHist(gray)
 
 # 전역 이진화 적용
-ret, binary = cv2.threshold(equalized_gray, 128, 255, cv2.THRESH_BINARY)
+ret, binary = cv2.threshold(gray, 128, 255, cv2.THRESH_BINARY)
 
 
 def initial_sand_color():
@@ -65,14 +65,18 @@ def bfs(i, j, step):
             continue
 
         visited[i, j] = True
-        output[i, j] = random_sand_color()
+        # output[i, j] = random_sand_color()
+        for a in range(5):
+            for b in range(5):
+                if i + a >= 0 and j + b >= 0 and i + a < height and j + b < width:
+                    output[i + a, j + b] = random_sand_color()
 
         ran_show = int(random.randrange(1000, 3000))
 
         if ((i * j) % (ran_show)) == 0:
             cv2.imshow("output", output)
             video.write(output)  # 현재 프레임 저장
-            cv2.waitKey(20)
+            cv2.waitKey(2)
 
         random.shuffle(directions)
         # step = random.randrange(1, 5)
@@ -90,14 +94,20 @@ def dfs(i, j, step, depth=0, max_recursion_depth=1000):
         return
 
     visited[i, j] = True
-    output[i, j] = random_sand_color()
+    # output[i, j] = random_sand_color()
+    flag = 0
+    for a in range(3):
+        for b in range(3):
+            flag = random.randrange(1, 4)
+            if i + a >= 0 and j + b >= 0 and i + a < height and j + b < width and flag < 3:
+                output[i + a, j + b] = random_sand_color()
 
     ran_show = int(random.randrange(1000, 3000))
 
     if ((i * j) % (ran_show)) == 0:
         cv2.imshow("output", output)
         video.write(output)  # 현재 프레임 저장
-        cv2.waitKey(20)
+        cv2.waitKey(2)
 
     if depth >= max_recursion_depth:
         return
